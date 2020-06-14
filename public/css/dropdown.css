@@ -9,6 +9,7 @@
 }
 
 .dropdown-content {
+    background-color:white;
     display: none;
     position: absolute;
     min-width: 160px;
