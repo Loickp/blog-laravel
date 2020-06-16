@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mx-auto">
-        <h1 class="text-4xl font-bold mt-12">Recent posts</h1>
+        <h1 class="text-4xl font-bold mt-12">Result for : {{ $search }}</h1>
         <div class="flex">
             <div class="w-4/6 mb-8">
 

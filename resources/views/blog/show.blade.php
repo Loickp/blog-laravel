@@ -1,14 +1,16 @@
 @extends('layouts.blog')
 
 @section('content')
-
-
     <div class="container mx-auto">
         <div class="mt-12">
           <h2 class="text-4xl font-medium">{{ $post->title }}</h2>
           <p class="my-2">by <a href="#" class="text-blue-500">{{ $post->user->name }}</a></p>
           <hr>
-          <p class="my-2">{{ $post->created_at->format('F j, Y') }}</p>
+          <div class="flex my-2">
+            <i class="fa fa-calendar m-1"></i>
+            <p>{{ $post->created_at->format('F j, Y') }}</p>
+            <i class="fa fa-tag m-1"></i>
+            <p>{{ $post->category->category_name }}</p>
         </div>
       </div>
         <div class="container mx-auto">

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 /* Blog routes */
 Route::get('/', 'BlogController@index');
 Route::get('/post/{id}', 'BlogController@show');
+Route::get('/categories/{id}', 'BlogController@categories');
+Route::get('/search', 'BlogController@search');
 
 Route::middleware('auth', 'redactor')->group(function(){
     Route::get('/create', 'BlogController@create');
