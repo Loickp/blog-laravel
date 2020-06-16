@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Post;
 use App\Category;
 
@@ -10,7 +11,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::all()->sortByDesc('created_at');
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
 
         return view('blog.index', ['posts' => $posts]);
     }
@@ -41,7 +42,7 @@ class BlogController extends Controller
     }
 
     public function categories($id){
-        $posts = Post::where('category_id', $id)->get();
+        $posts = Post::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(5);
         $category = Category::findOrFail($id);
 
         return view('blog.categories', ['posts' => $posts, 'category' => $category]);
@@ -49,7 +50,7 @@ class BlogController extends Controller
 
     public function search(){
         $search = request('search');
-        $posts = Post::where('content', 'like', '%' . $search . '%')->orWhere('title', 'like', '%' . $search . '%')->get();
+        $posts = Post::where('content', 'like', '%' . $search . '%')->orWhere('title', 'like', '%' . $search . '%')->orderBy('created_at', 'desc')->paginate(4);
 
         return view('blog.search', ['posts' => $posts, 'search' => $search]);
     }

@@ -30,7 +30,11 @@
                         </div>
                     </div>
                 @endforeach
-                
+
+                <div class="flex justify-center mt-8">
+                    {{ $posts->links() }} 
+                </div>
+                               
             </div>
 
             <div class="w-2/6 mt-8 ml-10">
