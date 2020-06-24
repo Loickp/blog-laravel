@@ -41,6 +41,10 @@
                       @else
                         <a href="#">{{ Auth::user()->name }}</a>
 
+                        @can('isAdmin')
+                          <a href="/dashboard">Dashboard</a>
+                        @endcan
+
                         @canany(['isAuthor', 'isAdmin'])
                           <a href="/panel">Panel</a>
                         @endcanany

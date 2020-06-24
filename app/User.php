@@ -37,11 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
+
     public function isAuthor(){
-        return $this->role === 'author';
+        return $this->role_id == 2;
     }
     
     public function isAdmin(){
-        return $this->role === 'admin';
+        return $this->role_id == 3;
     }
 }

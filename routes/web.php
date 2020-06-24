@@ -32,6 +32,21 @@ Route::middleware('auth', 'redactor')->group(function(){
     Route::delete('/panel/delete/{id}', 'PanelController@destroy');
 });
 
+/* Dashboard routes */
+Route::middleware('auth', 'admin')->group(function(){
+    // Posts
+    Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/dashboard/edit/{id}', 'DashboardController@show');
+    Route::post('/dashboard/edit/{id}', 'DashboardController@update');
+    Route::delete('/dashboard/delete/{id}', 'DashboardController@destroy');
+
+    // Users
+    Route::get('/dashboard/users', 'DashboardController@users');
+    Route::get('/dashboard/users/edit/{id}', 'DashboardController@user_show');
+    Route::post('/dashboard/users/edit/{id}', 'DashboardController@user_update');
+    Route::delete('/dashboard/users/delete/{id}', 'DashboardController@user_destroy');
+});
+
 
 /* Auth routes */
 Auth::routes();
