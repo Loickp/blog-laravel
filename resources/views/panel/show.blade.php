@@ -15,6 +15,17 @@
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ $post->title }}" id="title" name="title" type="text" placeholder="Post Title">
             </div>
             <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+                    Category
+                </label>
+                <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" id="category" name="category">
+                    <option value="{{ $post->category_id }}">{{ $post->category->category_name }}</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                     Content
                 </label>
