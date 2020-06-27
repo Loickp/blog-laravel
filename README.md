@@ -1,5 +1,6 @@
 # Blog Laravel
 Création d'un blog de A à Z avec Laravel.
+Utilisation de TailwindCSS pour le design.
 
 ### Fonctionnalités :
   - Inscription / Connexion
